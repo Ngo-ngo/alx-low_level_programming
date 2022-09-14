@@ -31,9 +31,7 @@ while (a <= n)
 		{
 
 			_putchar(' ');
-
 			_putchar(' ');
-
 			_putchar('0' + rep);
 
 		}
@@ -42,9 +40,7 @@ while (a <= n)
 		{
 
 			_putchar(' ');
-
 			_putchar('0' + rep / 10);
-
 			_putchar('0' + rep % 10);
 
 		}
@@ -53,9 +49,7 @@ while (a <= n)
 		{
 
 			_putchar('0' + rep / 100);
-
 			_putchar('0' + (rep - 100) / 10);
-
 			_putchar('0' + rep % 10);
 
 		}
@@ -64,7 +58,6 @@ while (a <= n)
 		{
 
 			_putchar(',');
-
 			_putchar(' ');
 
 		}
@@ -72,7 +65,6 @@ while (a <= n)
 	}
 
 	_putchar('\n');
-
 	a++;
 
 }
