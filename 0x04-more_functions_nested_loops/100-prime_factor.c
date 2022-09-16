@@ -2,28 +2,32 @@
 #include <math.h>
 
 /**
- * main - prime numbers
- * Return: Always 0
+ * main - main block
+ * Description: Find and print the largest prime factor of the number
+ * 612852475143
+ * Return: 0
  */
 
 int main(void)
 {
-unsigned int long n = 612852475143, a = (int) sqrt(n);
+	int c;
 
-while (1)
-{
+	long num = 612852475143;
 
-	if (n % a == 0)
+	for (c = (int) sqrt(num); c > 2; c++)
 	{
-		printf("%lu \n", n / a);
+		if (num % c == 0)
+		{
+			printf("%d\n", c);
 
-		break;
+			break;
+
+		}
+
 	}
 
-	a--;
 
-}
 
-return (0);
+	return (0);
 
 }
