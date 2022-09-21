@@ -11,7 +11,6 @@ void print_number(int n)
 
 	int divisor = 1, i, resp;
 
-
 	if (n < 0)
 	{
 
@@ -20,7 +19,6 @@ void print_number(int n)
 		n *= -1;
 
 	}
-
 
 	for (i = 0; n / divisor > 9; i++, divisor *= 10)
 
