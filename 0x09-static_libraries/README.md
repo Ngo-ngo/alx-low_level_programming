@@ -1,1 +1,1 @@
-ALX project on static library
+C static library

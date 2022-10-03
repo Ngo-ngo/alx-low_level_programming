@@ -13,7 +13,6 @@ char *_strstr(char *haystack, char *needle)
 
 	int i, j;
 
-
 	for (i = 0; haystack[i] > '\0'; i++)
 	{
 
@@ -25,7 +24,7 @@ char *_strstr(char *haystack, char *needle)
 
 				break;
 
-			}
+			}	
 
 		}
 
@@ -34,7 +33,7 @@ char *_strstr(char *haystack, char *needle)
 
 			return (haystack + i);
 
-		}
+		}	
 
 	}
 
