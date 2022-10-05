@@ -1,4 +1,4 @@
-#include "main.h"
+#include"main.h"
 
 /**
  * _strlen - find length of a string
@@ -12,13 +12,12 @@ int _strlen(char *s)
 	int size = 0;
 
 	for (; s[size] != '\0'; size++)
+
 		;
 
 	return (size);
 
 }
-
-
 
 /**
  * *str_concat - concatenates two strings
@@ -36,7 +35,6 @@ char *str_addChar (char *str, char c)
 
 	size = _strlen(str);
 
-
 	m = malloc((size + 1) * sizeof(char) + 1);
 
 	if (m == 0)
@@ -45,8 +43,8 @@ char *str_addChar (char *str, char c)
 
 
 	for (i = 0; i <= size; i++)
-		m[i] = str[i];
 
+		m[i] = str[i];
 
 
 	m[i + 1] = c;
@@ -57,7 +55,6 @@ char *str_addChar (char *str, char c)
 	return (m);
 
 }
-
 
 /**
  * *nbr_spaces - return the number of occurent of a string
@@ -74,6 +71,7 @@ unsigned int nbr_spaces(char *s)
 	{
 
 		if (s[i]  == ' ' && s[i + 1] != ' ')
+
 			cmpt++;
 
 	}
@@ -81,7 +79,6 @@ unsigned int nbr_spaces(char *s)
 	return (cmpt + 1);
 
 }
-
 
 /**
   *strtow - split a sentence into multiple words.
@@ -152,6 +149,8 @@ char **strtow(char *str)
 
 
 	}
+
+
 
 	tokens[i] = NULL;
 
