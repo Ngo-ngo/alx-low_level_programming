@@ -1,159 +1,98 @@
-#include"main.h"
+#include "main.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * _strlen - find length of a string
- * @s: string
- * Return: int
+ * strtow - splits a string to words
+ * @str: string to split
+ * Return: a point to an array of strings or NULL
  */
-
-int _strlen(char *s)
-{
-
-	int size = 0;
-
-	for (; s[size] != '\0'; size++)
-
-		;
-
-	return (size);
-
-}
-
-/**
- * *str_concat - concatenates two strings
- * @s1: string 1
- * @s2: string 2
- * Return: pointer
- */
-
-char *str_addChar (char *str, char c)
-{
-
-	int size, i;
-
-	char *m;
-
-	size = _strlen(str);
-
-	m = malloc((size + 1) * sizeof(char) + 1);
-
-	if (m == 0)
-
-		return (0);
-
-
-	for (i = 0; i <= size; i++)
-
-		m[i] = str[i];
-
-
-	m[i + 1] = c;
-
-	m[i + 2] = '\0';
-
-
-	return (m);
-
-}
-
-/**
- * *nbr_spaces - return the number of occurent of a string
- * @s: string to check
- * Return: int
- */
-
-unsigned int nbr_spaces(char *s)
-{
-
-	int i, cmpt = 0;
-
-	for (i = 0; s[i + 1] != '\0'; i++)
-	{
-
-		if (s[i]  == ' ' && s[i + 1] != ' ')
-
-			cmpt++;
-
-	}
-
-	return (cmpt + 1);
-
-}
-
-/**
-  *strtow - split a sentence into multiple words.
-  *@str: the string passed as argument.
-  *Return: tokens
-  */
 
 char **strtow(char *str)
 {
 
-	int i;
+	char **arr_words = NULL;
 
-	int spaces = nbr_spaces(str);
+	int i, j = 0, wlen, slen, words = 0, sig = 0, pre_sig = 0;
 
-	char **tokens = NULL;//malloc(sizeof(char *) * (spaces));
+	if (str == NULL)
 
-	char *token;
+		return (NULL);
 
-	int checkingSpace = 0;
+	slen = strlen(str);
 
-	int word = 0;
-
-
-	if (!tokens)
+	for (i = 0; i < slen; i++)
 	{
 
-		printf("Failed");
+		sig = (str[i] == 32 || str[i] == '\t') ? 0 : 1;
 
-		return (0);
+		words = (pre_sig == 0 && sig == 1) ? words + 1 : words;
+
+		pre_sig = sig;
 
 	}
 
+	if (words == 0)
 
-	printf("looping");
+		return (NULL);
 
-	for (i = 0; str[i] != '\0'; i++)
+	arr_words = malloc(words * sizeof(char *));
+
+	if (arr_words == NULL)
 	{
 
-		if (str[i] == ' ')
+		free(arr_words);
+
+		return (NULL);
+
+	}
+
+	words = 0;
+
+	for (i = 0; i < slen; i++)
+	{
+
+		sig = (str[i] == 32 || str[i] == 9) ? 0 : 1;
+
+		if (sig)
 		{
 
-			if (checkingSpace == 0)
+			for (j = 0; str[i + j] != 32 && str[i + j] != 9; j++)
+
+				;
+
+			wlen = j;
+
+			arr_words[words] = malloc(wlen * sizeof(char));
+
+			if (arr_words[words] == NULL)
 			{
 
-				word++;
+				for (; words >= 0; words--)
 
-				checkingSpace = 1;
+					free(arr_words[words]);
 
-			} 
+				free(arr_words);
+
+				return (NULL);
+
+			}
+
+			for (j = 0; j < wlen; j++)
+			{
+
+				arr_words[words][j] = str[i + j];
+
+			}
+
+			words++;
+
+			i += wlen - 1;
 
 		}
-
-		else
-		{
-
-			printf("1");
-
-			token = tokens[word];
-
-			free(tokens[word]);
-
-			str_addChar(token, str[i]);
-
-			checkingSpace = 0;
-
-		}
-
-
 
 	}
 
-
-
-	tokens[i] = NULL;
-
-	return (tokens);
+	return (arr_words);
 
 }
