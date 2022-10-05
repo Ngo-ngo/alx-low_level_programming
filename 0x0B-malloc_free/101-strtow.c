@@ -6,7 +6,6 @@
  * Return: int
  */
 
-
 int _strlen(char *s)
 {
 
@@ -46,7 +45,6 @@ char *str_addChar (char *str, char c)
 
 
 	for (i = 0; i <= size; i++)
-
 		m[i] = str[i];
 
 
@@ -76,7 +74,6 @@ unsigned int nbr_spaces(char *s)
 	{
 
 		if (s[i]  == ' ' && s[i + 1] != ' ')
-
 			cmpt++;
 
 	}
@@ -155,8 +152,6 @@ char **strtow(char *str)
 
 
 	}
-
-
 
 	tokens[i] = NULL;
 
