@@ -1,27 +1,15 @@
-#include "holberton.h"
-
-
-
+#include "main.h"
 #define MAXSIZE 1204
-
 #define SE STDERR_FILENO
 
-
-
 /**
-
  * main - create the copy bash script
-
  * @ac: argument count
-
  * @av: arguments as strings
-
  * Return: 0
-
  */
 
 int main(int ac, char *av[])
-
 {
 
 	int input_fd, output_fd, istatus, ostatus;
@@ -29,8 +17,6 @@ int main(int ac, char *av[])
 	char buf[MAXSIZE];
 
 	mode_t mode;
-
-
 
 	mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
